@@ -3,7 +3,6 @@ using System.Collections;
 
 public class NumberWizard : MonoBehaviour {
 	int max, min, guess;
-
 	// Use this for initialization
 	void Start () {
 		startGame ();
@@ -36,15 +35,15 @@ public class NumberWizard : MonoBehaviour {
 		print ("The minimum number you can pick is: " + min);
 
 		max = max + 1;
-		guess = max / 2;
+		guess = (max / 2) + Random.Range (-200, 200);
 
-		print ("Is your number higher or lower than 500?");
+		print ("Is your number higher or lower than "+guess+"?");
 		print ("Up = higher, down = lower, return = equal");
 	}
 
 	void nextGuess(){
 		guess=(min+max)/2;
-		print ("Higher or lower than "+guess);
+		print ("Is your number higher or lower than "+guess+"?");
 		print ("Up = higher, down = lower, return = equal");
 	}
 
