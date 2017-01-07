@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class NumberWizard : MonoBehaviour {
-	int max = 1000, min=1, guess;
+	int max = 1001, min=1, guess;
 
 	// Use this for initialization
 	void Start () {
@@ -26,13 +26,14 @@ public class NumberWizard : MonoBehaviour {
 			//print ("UP");
 			min=guess;
 			guess=(min+max)/2;
+			print ("Higher or lower than "+guess);
 		} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
 			//print ("DOWN");
 			max=guess;
 			guess=(min+max)/2;
+			print ("Higher or lower than "+guess);
 		} else if (Input.GetKeyDown (KeyCode.Return)) {
 			print ("Your number is "+guess);
 		}
-		print ("Higher or lower than "+guess);
 	}
 }
