@@ -2,22 +2,11 @@
 using System.Collections;
 
 public class NumberWizard : MonoBehaviour {
-	int max = 1001, min=1, guess;
+	int max, min, guess;
 
 	// Use this for initialization
 	void Start () {
-		print ("Welcome to number Wizard");
-		print ("Pick a number a number in your head.");
-
-		guess = max / 2;
-
-		print ("The maximum number you can pick is: " + max);
-		print ("The minimum number you can pick is: " + min);
-
-		
-		print ("Is your number higher or lower than 500?");
-		print ("Up = higher, down = lower, return = equal");
-
+		startGame ();
 	}
 	
 	// Update is called once per frame
@@ -25,15 +14,38 @@ public class NumberWizard : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.UpArrow)) {
 			//print ("UP");
 			min=guess;
-			guess=(min+max)/2;
-			print ("Higher or lower than "+guess);
+			nextGuess ();
 		} else if (Input.GetKeyDown (KeyCode.DownArrow)) {
 			//print ("DOWN");
 			max=guess;
-			guess=(min+max)/2;
-			print ("Higher or lower than "+guess);
+			nextGuess ();
 		} else if (Input.GetKeyDown (KeyCode.Return)) {
 			print ("Your number is "+guess);
+			startGame();
 		}
 	}
+
+	void startGame(){
+		min = 1;
+		max = 1000;
+		print ("------------------------------------");
+		print ("Welcome to number Wizard");
+		print ("Pick a number a number in your head.");
+		
+		print ("The maximum number you can pick is: " + max);
+		print ("The minimum number you can pick is: " + min);
+
+		max = max + 1;
+		guess = max / 2;
+
+		print ("Is your number higher or lower than 500?");
+		print ("Up = higher, down = lower, return = equal");
+	}
+
+	void nextGuess(){
+		guess=(min+max)/2;
+		print ("Higher or lower than "+guess);
+		print ("Up = higher, down = lower, return = equal");
+	}
+
 }
